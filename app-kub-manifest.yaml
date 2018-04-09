@@ -1,33 +1,29 @@
-# basic service + deployment
-apiVersion: v1
-kind: Service
-metadata:
-  name: java-hello-world
-  labels:
-    app: java-hello-world-v1
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    protocol: TCP
-  selector:
-    app: java-hello-world-v1
----
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: java-hello-world-v1
+  name: java-hello-world
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: java-hello-world-v1
+        app: java-hello-world
     spec:
       containers:
       - name: java-hello-world
-        image: arvindockerregistry.azurecr.io/java-hello-world:latest
+        image: REGISTRY_NAME.azurecr.io/microsoft/azure-vote-front:redis-v1
         ports:
         - containerPort: 8080
         imagePullSecrets:
-        - name: "jenkins-acr-secret"
+        - name: jenkins-acr-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-hello-world
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: java-hello-world
