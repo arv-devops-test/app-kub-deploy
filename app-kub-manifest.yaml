@@ -29,3 +29,5 @@ spec:
         image: arvindockerregistry.azurecr.io/java-hello-world:latest
         ports:
         - containerPort: 8080
+        imagePullSecrets:
+        - name: jenkins-acr-secret
