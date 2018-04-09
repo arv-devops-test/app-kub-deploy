@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: java-hello-world
-        image: REGISTRY_NAME.azurecr.io/microsoft/azure-vote-front:redis-v1
+        image: arvindockerregistry.azurecr.io/java-hello-world:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
