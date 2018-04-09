@@ -14,8 +14,8 @@ spec:
         image: REGISTRY_NAME.azurecr.io/microsoft/azure-vote-front:redis-v1
         ports:
         - containerPort: 8080
-        imagePullSecrets:
-        - name: jenkins-acr-secret
+      imagePullSecrets:
+      - name: jenkins-acr-secret
 ---
 apiVersion: v1
 kind: Service
