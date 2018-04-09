@@ -13,7 +13,7 @@ spec:
   selector:
     app: java-hello-world-v1
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: java-hello-world-v1
